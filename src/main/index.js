@@ -20,7 +20,7 @@ function onReady() {
         buttons: ["Yes", "No"]
       });
       if (confirm === 0) {
-        shell.openExternal("https://github.com/stoex/marky/releases");
+        shell.openExternal("https://github.com/stoex/md.edit/releases");
       }
     });
   });
