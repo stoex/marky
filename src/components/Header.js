@@ -10,7 +10,7 @@ const Header = ({ wordCount, fileName, edit, toggleEdit }) => (
         backgroundColor: colors.GRAY
       }}
     >
-      <Heading level={3}>SIHOT MD.edit</Heading>
+      <Heading level={3}>MDedit</Heading>
       <Space auto />
       <Button
         children={edit === true ? "VIEW ONLY" : "EDIT"}

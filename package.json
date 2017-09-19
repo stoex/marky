@@ -1,10 +1,10 @@
 {
-  "name": "sihotmd.edit",
+  "name": "mdedit",
   "productName": "MDedit",
   "private": true,
   "version": "1.0.0",
   "description": "A Markdown viewer / editor",
-  "author": "Christian Nicola (c.nicola@sihot.com)",
+  "author": "Christian Nicola <chris.nicola89@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stoex/md.edit/issues"

@@ -24,7 +24,7 @@ function onReady() {
       const confirm = dialog.showMessageBox({
         type: "info",
         title: "Update available",
-        message: `A new version (${newVersion}) of SIHOT MD.edit is available.`,
+        message: `A new version (${newVersion}) of MDedit is available.`,
         detail: "Do you want to download it now?",
         buttons: ["Yes", "No"]
       });

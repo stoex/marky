@@ -1,22 +1,22 @@
-import semver from 'semver'
-import superagent from 'superagent'
-import { version as currentVersion } from '../../package.json'
+import semver from "semver";
+import superagent from "superagent";
+import { version as currentVersion } from "../../package.json";
 
-export default function autoUpdater (callback) {
+export default function autoUpdater(callback) {
   superagent
-  .get('https://raw.githubusercontent.com/vesparny/marky/master/package.json')
-  .end((err, res) => {
-    if (err || !res.ok) {
-      callback(err)
-    } else {
-      try {
-        const newVersion = JSON.parse(res.text).version
-        if (semver.gt(newVersion, currentVersion)) {
-          callback(null, newVersion)
+    .get("https://raw.githubusercontent.com/stoex/md.edit/master/package.json")
+    .end((err, res) => {
+      if (err || !res.ok) {
+        callback(err);
+      } else {
+        try {
+          const newVersion = JSON.parse(res.text).version;
+          if (semver.gt(newVersion, currentVersion)) {
+            callback(null, newVersion);
+          }
+        } catch (err) {
+          callback(err);
         }
-      } catch (err) {
-        callback(err)
       }
-    }
-  })
+    });
 }

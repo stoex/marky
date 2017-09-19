@@ -30,7 +30,7 @@ function openFile(filePath, browserWindow) {
         type: "error",
         title: "Unsupported File",
         message:
-          "You are trying to load a large file, SIHOT MD.edit will be unresponsive",
+          "You are trying to load a large file, MDedit will be unresponsive",
         detail: "Do you still want to load this file?",
         buttons: ["Proceed", "Cancel"]
       });
@@ -56,9 +56,7 @@ ipcMain.on("MD::save-file-as", (e, { data }) => {
   if (filePath) {
     fs.writeFile(filePath, data, "utf-8", function(err) {
       if (err) return;
-      BrowserWindow.fromWebContents(e.sender).setTitle(
-        "SIHOT MD.edit -- " + filePath
-      );
+      BrowserWindow.fromWebContents(e.sender).setTitle("MDedit -- " + filePath);
       e.sender.send("MD::file-loaded", {
         fileName: basename(filePath),
         filePath,

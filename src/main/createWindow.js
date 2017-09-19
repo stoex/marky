@@ -32,10 +32,10 @@ export default function createWindow(filePath, callback) {
           fileName: path.basename(filePath),
           filePath
         });
-        mainWindow.setTitle("SIHOT MD.edit -- " + filePath);
+        mainWindow.setTitle("MDedit -- " + filePath);
       });
     } else {
-      mainWindow.setTitle("SIHOT MD.edit -- Untitled Document");
+      mainWindow.setTitle("MDedit -- Untitled Document");
     }
     callback && callback();
   });
