@@ -1,11 +1,20 @@
 import { app, Menu, dialog, shell } from "electron";
+import minimist from "minimist";
 import configureMenu from "./configureMenu";
 import createWindow from "./createWindow";
 import window from "./windowManager";
 import autoUpdater from "./autoUpdater";
 
 let isReady = false;
+
+let argv = minimist(process.argv.slice(1));
 let pathToOpen;
+
+console.log(argv);
+
+if (argv.hasOwnProperty("f")) {
+  pathToOpen = argv.f;
+}
 
 function onReady() {
   createWindow(pathToOpen, () => {
