@@ -1,56 +1,70 @@
-import path from 'path'
-import fs from 'fs-plus'
-import windowStateKeeper from 'electron-window-state'
-import { shell } from 'electron'
-import window from './windowManager'
+import path from "path";
+import fs from "fs-plus";
+import windowStateKeeper from "electron-window-state";
+import { shell } from "electron";
+import window from "./windowManager";
 
-export default function createWindow (filePath, callback) {
+export default function createWindow(filePath, callback) {
   // Create the browser window.
 
   const mainWindowState = windowStateKeeper({
     defaultWidth: 1000,
     defaultHeight: 800
-  })
+  });
 
   var mainWindow = window.createWindow({
-    'x': mainWindowState.x,
-    'y': mainWindowState.y,
-    'width': mainWindowState.width,
-    'height': mainWindowState.height
-  })
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height
+  });
 
-  var indexPath = process.env.NODE_ENV === 'production'
-  ? path.resolve(__dirname, 'src/index.html')
-  : path.resolve(__dirname, '..', 'index.html')
+  var indexPath =
+    process.env.NODE_ENV === "production"
+      ? path.resolve(__dirname, "src/index.html")
+      : path.resolve(__dirname, "..", "index.html");
   mainWindow.showUrl(indexPath, () => {
     if (filePath) {
-      fs.readFile(filePath, 'utf-8', (err, file) => {
-        if (err) return
-        mainWindow.webContents.send('MARKY::file-loaded', {
+      fs.readFile(filePath, "utf-8", (err, file) => {
+        if (err) return;
+        mainWindow.webContents.send("MD::file-loaded", {
           file,
           fileName: path.basename(filePath),
           filePath
-        })
-        mainWindow.setTitle('Marky -- ' + filePath)
-      })
+        });
+        mainWindow.setTitle("SIHOT MD.edit -- " + filePath);
+      });
     } else {
-      mainWindow.setTitle('Marky -- Untitled Document')
+      mainWindow.setTitle("SIHOT MD.edit -- Untitled Document");
     }
-    callback && callback()
-  })
+    callback && callback();
+  });
 
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.webContents.openDevTools()
+  if (process.env.NODE_ENV === "development") {
+    const {
+      default: installExtension,
+      REACT_DEVELOPER_TOOLS,
+      REDUX_DEVTOOLS
+    } = require("electron-devtools-installer");
+
+    installExtension(REACT_DEVELOPER_TOOLS)
+      .then(name => console.log(`Added Extension:  ${name}`))
+      .catch(err => console.log("An error occurred: ", err));
+
+    installExtension(REDUX_DEVTOOLS)
+      .then(name => console.log(`Added Extension:  ${name}`))
+      .catch(err => console.log("An error occurred: ", err));
+
+    mainWindow.webContents.openDevTools();
   }
 
-  mainWindowState.manage(mainWindow)
+  mainWindowState.manage(mainWindow);
 
-  function openExternal (e, url) {
-    e.preventDefault()
-    shell.openExternal(url)
+  function openExternal(e, url) {
+    e.preventDefault();
+    shell.openExternal(url);
   }
-  mainWindow.webContents.on('new-window', openExternal)
-  mainWindow.webContents.on('will-navigate', openExternal)
-
-  return mainWindow
+  mainWindow.webContents.on("new-window", openExternal);
+  mainWindow.webContents.on("will-navigate", openExternal);
+  return mainWindow;
 }
