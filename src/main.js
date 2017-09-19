@@ -1,44 +1,39 @@
-import 'highlight.js/styles/github.css'
-import 'normalize.css/normalize.css'
-import './style.css'
-import RedBox from 'redbox-react'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import configureStore from './configureStore'
-import Root from './containers/Root'
-import configureIpcRenderer from './configureIpcRenderer'
+import "highlight.js/styles/github.css";
+import "normalize.css/normalize.css";
+import "./style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import RedBox from "redbox-react";
+import React from "react";
+import ReactDOM from "react-dom";
+import configureStore from "./configureStore";
+import Root from "./containers/Root";
+import configureIpcRenderer from "./configureIpcRenderer";
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root");
 
-const store = configureStore()
+const store = configureStore();
 
-configureIpcRenderer(store)
+configureIpcRenderer(store);
 
 let render = () => {
-  const Root = require('./containers/Root').default
-  ReactDOM.render(
-    <Root store={store} />,
-    rootElement
-  )
-}
+  const Root = require("./containers/Root").default;
+  ReactDOM.render(<Root store={store} />, rootElement);
+};
 
 if (module.hot) {
-  const renderApp = render
-  const renderError = (err) => {
-    const RedBox = require('redbox-react')
-    ReactDOM.render(
-      <RedBox error={err} />,
-      rootElement
-    )
-  }
+  const renderApp = render;
+  const renderError = err => {
+    const RedBox = require("redbox-react");
+    ReactDOM.render(<RedBox error={err} />, rootElement);
+  };
   render = () => {
     try {
-      renderApp()
+      renderApp();
     } catch (err) {
-      renderError(err)
+      renderError(err);
     }
-  }
-  module.hot.accept('./containers/Root', render)
+  };
+  module.hot.accept("./containers/Root", render);
 }
 
-render()
+render();

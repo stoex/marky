@@ -4,7 +4,8 @@
   "private": true,
   "version": "0.0.1",
   "description": "A Markdown editor",
-  "author": "Alessandro Arnodo <alessandro@arnodo.net> (https://alessandro.arnodo.net)",
+  "author":
+    "Alessandro Arnodo <alessandro@arnodo.net> (https://alessandro.arnodo.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vesparny/marky/issues"
@@ -12,7 +13,8 @@
   "homepage": "https://github.com/vesparny/marky",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development electron -r babel-register index.dev.js",
+    "start":
+      "cross-env NODE_ENV=development electron -r babel-register index.dev.js",
     "build": "cross-env NODE_ENV=production node -r babel-register build.js",
     "test": "npm run lint",
     "lint": "standard"
@@ -20,15 +22,16 @@
   "dependencies": {
     "aphrodite": "0.3.1",
     "brace": "0.8.0",
+    "bootstrap": "3.3.7",
     "classnames": "2.2.5",
     "electron-window-state": "3.0.3",
     "file-loader": "0.8.5",
     "fs-plus": "2.9.1",
-    "highlight.js": "9.4.0",
+    "highlight.js": "9.12.0",
     "lodash": "4.13.1",
-    "markdown-it": "6.0.4",
-    "markdown-it-emoji": "1.2.0",
-    "markdown-it-highlightjs": "2.0.0",
+    "markdown-it": "8.4.0",
+    "markdown-it-emoji": "1.4.0",
+    "markdown-it-highlightjs": "3.0.0",
     "normalize.css": "4.1.1",
     "react": "15.1.0",
     "react-dom": "15.1.0",
