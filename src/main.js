@@ -1,7 +1,7 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "highlight.js/styles/github.css";
 import "normalize.css/normalize.css";
 import "./style.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import RedBox from "redbox-react";
 import React from "react";
 import ReactDOM from "react-dom";
