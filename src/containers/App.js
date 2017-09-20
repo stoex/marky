@@ -48,7 +48,9 @@ const App = React.createClass({
           edit={edit}
           toggleEdit={this.props.toggleEdit}
         />
-        <Preview value={html} />
+        <Panel ref="preview" overflowX>
+          <Preview value={html} />
+        </Panel>
       </section>
     );
   }
