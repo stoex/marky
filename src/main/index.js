@@ -10,8 +10,6 @@ let isReady = false;
 let argv = minimist(process.argv.slice(1));
 let pathToOpen;
 
-console.log(argv);
-
 if (argv.hasOwnProperty("f")) {
   pathToOpen = argv.f;
 }
