@@ -1,3 +1,4 @@
+import setupEvents from '../setup-win/setupEvents'
 import { app, Menu, dialog, shell } from 'electron'
 import minimist from 'minimist'
 import configureMenu from './configureMenu'
@@ -5,10 +6,18 @@ import createWindow from './createWindow'
 import window from './windowManager'
 import autoUpdater from './autoUpdater'
 
+if (setupEvents.handleSquirrelEvent()) console.log('squirrel')
+
 let isReady = false
 
 let argv = minimist(process.argv.slice(1))
+
 let pathToOpen
+
+// debug
+console.log(argv)
+console.log(`can get path: ${argv.hasOwnProperty('f')}`)
+console.log(`path: ${argv.f}`)
 
 if (argv.hasOwnProperty('f')) {
   pathToOpen = argv.f

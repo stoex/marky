@@ -28,6 +28,7 @@ Please not that binaries are not signed. If you need them to be signed you can e
 
 * Live preview
 * View / Edit mode
+* CLI Options
 * GitHub Flavored Markdown support
 * Search in Markdown
 * Syntax highlighting
@@ -100,6 +101,13 @@ brew install wine
 ```
 
 (Requires the [Homebrew](http://brew.sh/) package manager.)
+
+#### CLI Options
+
+**MDedit** currently supports the following flags:
+
+- ``-f {absolute file path} ``
+  * Pass a file to MDedit to open it immediately on startup. Good for scripting previews and such of existing markdown files.
 
 ### Code Style
 

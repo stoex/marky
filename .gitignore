@@ -4,6 +4,7 @@ dist
 *.log
 coverage
 release
+.vscode
 
 /index.js
 /index.js.map
