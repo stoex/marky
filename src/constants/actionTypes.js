@@ -1,3 +1,3 @@
-export const MARKDOWN_CHANGED = "MARKDOWN_CHANGED";
-export const FILE_LOADED = "FILE_LOADED";
-export const TOGGLE_EDIT = "TOGGLE_EDIT";
+export const MARKDOWN_CHANGED = 'MARKDOWN_CHANGED'
+export const FILE_LOADED = 'FILE_LOADED'
+export const TOGGLE_EDIT = 'TOGGLE_EDIT'

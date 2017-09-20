@@ -7,7 +7,7 @@ const _windows = {}
 
 function _createWindow (options) {
   const opts = {
-    ... {
+    ...{
       show: false
     },
     ...options
@@ -28,7 +28,7 @@ function _unref () {
 function _loadUrl (httpOrFileUrl, callback) {
   const win = this
   win.webContents.once('did-finish-load', (...args) => {
-    callback(...args)
+    callback(...args); // eslint-disable-line
   })
   win.loadURL('file://' + httpOrFileUrl)
 }
@@ -42,7 +42,7 @@ function createWindow (options) {
   window.showUrl = function (httpOrFileUrl, callback) {
     window._loadUrl(httpOrFileUrl, (...args) => {
       window.show()
-      callback && callback(...args)
+      callback && callback(...args); //eslint-disable-line
     })
   }
 
