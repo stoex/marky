@@ -14,11 +14,6 @@ let argv = minimist(process.argv.slice(1))
 
 let pathToOpen
 
-// debug
-console.log(argv)
-console.log(`can get path: ${argv.hasOwnProperty('f')}`)
-console.log(`path: ${argv.f}`)
-
 if (argv.hasOwnProperty('f')) {
   pathToOpen = argv.f
 }
