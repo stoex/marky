@@ -32,7 +32,7 @@ function openFile (filePath, browserWindow) {
         type: 'error',
         title: 'Unsupported File',
         message:
-          'You are trying to load a large file, MDedit will be unresponsive',
+        'You are trying to load a large file, MDedit will be unresponsive',
         detail: 'Do you still want to load this file?',
         buttons: ['Proceed', 'Cancel']
       })
@@ -68,6 +68,17 @@ ipcMain.on('MD::save-file-as', (e, { data }) => {
   }
 })
 
+ipcMain.on('MD::export-html', (e, { data }) => {
+  const filePath = dialog.showSaveDialog()
+  if (filePath) {
+    fs.writeFile(filePath, data, 'utf-8', err => {
+      if (err) {
+        throw err
+      }
+    })
+  }
+})
+
 export function open ({ browserWindow }) {
   dialog.showOpenDialog(
     browserWindow,
@@ -91,4 +102,8 @@ export function saveAs ({ browserWindow }) {
 
 export function newFile () {
   createWindow()
+}
+
+export function exportHTML ({ browserWindow }) {
+  browserWindow.webContents.send('MD::ask-export-html')
 }

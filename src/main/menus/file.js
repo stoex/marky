@@ -12,7 +12,7 @@ export default {
     label: 'Open...',
     accelerator: 'CmdOrCtrl+O',
     click: (menuItem, browserWindow) => {
-      actions.open({browserWindow})
+      actions.open({ browserWindow })
     }
   }, {
     type: 'separator'
@@ -20,27 +20,29 @@ export default {
     label: 'Save',
     accelerator: 'CmdOrCtrl+S',
     click: (menuItem, browserWindow) => {
-      actions.save({browserWindow})
+      actions.save({ browserWindow })
     }
   }, {
     label: 'Save As...',
     accelerator: 'Shift+CmdOrCtrl+S',
     click: (menuItem, browserWindow) => {
-      actions.saveAs({browserWindow})
+      actions.saveAs({ browserWindow })
     }
   }, {
     type: 'separator'
   }, {
     label: 'Export As HTML',
-    click: function () {}
+    click: (menuItem, browserWindow) => {
+      actions.exportHTML({ browserWindow })
+    }
   }, {
     label: 'Export As PDF',
-    click: function () {}
+    click: function () { }
   }, {
     type: 'separator'
   }, {
     label: 'Print',
     accelerator: 'CmdOrCtrl+P',
-    click: function () {}
+    click: function () { }
   }]
 }

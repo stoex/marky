@@ -29,6 +29,13 @@ export default function configureIpcRenderer (store) {
     })
   })
 
+  ipcRenderer.on('MD::ask-export-html', e => {
+    const data = store.getState().markdown.html
+    ipcRenderer.send('MD::export-html', {
+      data
+    })
+  })
+
   window.document.addEventListener('drop', e => {
     e.preventDefault()
     ipcRenderer.send('MD::dropped-file', {
