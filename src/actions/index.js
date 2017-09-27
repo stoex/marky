@@ -30,3 +30,10 @@ export function toggleEdit () {
     type: types.TOGGLE_EDIT
   }
 }
+
+export function changeTheme (theme) {
+  return {
+    type: types.CHANGE_THEME,
+    payload: { theme }
+  }
+}

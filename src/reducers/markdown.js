@@ -7,7 +7,8 @@ const initialState = {
   filePath: null,
   fileName: null,
   wordCount: 0,
-  edit: false
+  edit: false,
+  theme: 'ace/theme/github'
 }
 
 export default function markdown (state = initialState, action) {
@@ -27,6 +28,10 @@ export default function markdown (state = initialState, action) {
     case types.TOGGLE_EDIT:
       return Object.assign({}, state, {
         edit: !state.edit
+      })
+    case types.CHANGE_THEME:
+      return Object.assign({}, state, {
+        theme: action.payload.theme
       })
     default:
       return state

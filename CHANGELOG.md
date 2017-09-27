@@ -9,3 +9,8 @@ __v1.0.0__
 __v1.0.1__
 
 - Updated electron dependencies ( fixes some saving / dialog issues )
+
+__v1.0.2__
+
+- HTML export: File -> Export as HTML enables you to export the parsed markdown as a html file. 
+- Edit -> Change Theme: Added a theme switcher for the editor

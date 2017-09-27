@@ -12,7 +12,8 @@ const App = React.createClass({
     isScrolling: PropTypes.bool,
     markdown: PropTypes.string,
     html: PropTypes.string,
-    edit: PropTypes.bool
+    edit: PropTypes.bool,
+    theme: PropTypes.string
   },
 
   onChange (value) {
@@ -20,7 +21,7 @@ const App = React.createClass({
   },
 
   render () {
-    const { wordCount, markdown, html, fileName, edit } = this.props
+    const { wordCount, markdown, html, fileName, edit, theme } = this.props
     return edit === true ? (
       <section>
         <Header
@@ -31,7 +32,7 @@ const App = React.createClass({
         />
         <SplitPane split='vertical' defaultSize='50%' primary='second'>
           <Panel ref='editor'>
-            <Editor value={markdown} onChange={this.onChange} />
+            <Editor value={markdown} onChange={this.onChange} theme={theme} />
           </Panel>
           <Panel ref='preview' overflowY>
             <Preview value={html} />

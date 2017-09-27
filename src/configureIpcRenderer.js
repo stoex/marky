@@ -36,6 +36,10 @@ export default function configureIpcRenderer (store) {
     })
   })
 
+  ipcRenderer.on('MD::change-theme', (e, theme) => {
+    store.dispatch(actions.changeTheme(theme))
+  })
+
   window.document.addEventListener('drop', e => {
     e.preventDefault()
     ipcRenderer.send('MD::dropped-file', {

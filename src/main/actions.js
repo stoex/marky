@@ -107,3 +107,7 @@ export function newFile () {
 export function exportHTML ({ browserWindow }) {
   browserWindow.webContents.send('MD::ask-export-html')
 }
+
+export function changeTheme ({ browserWindow }, theme) {
+  browserWindow.webContents.send('MD::change-theme', theme)
+}
