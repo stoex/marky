@@ -26,7 +26,7 @@ const Panel = React.createClass({
 
 const style = StyleSheet.create({
   common: {
-    height: 'calc(100vh - 50px)'
+    height: 'calc(100vh - 88px)'
   },
 
   overflowYScroll: {

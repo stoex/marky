@@ -63,7 +63,7 @@ const Editor = React.createClass({
     this.editor.on('change', this.onChange)
     this.editor.setValue(this.props.value, -1)
     this.editor.setOption('maxLines', 99999)
-    this.editor.setOption('minLines', 54)
+    this.editor.setOption('minLines', 53)
     this.editor.setOption('highlightActiveLine', true)
     this.editor.setShowPrintMargin(false)
     this.editor.focus()
