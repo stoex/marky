@@ -2,7 +2,7 @@
   "name": "mdedit",
   "productName": "MDedit",
   "private": true,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Markdown viewer / editor",
   "author": "Christian Nicola <chris.nicola89@gmail.com>",
   "license": "MIT",
